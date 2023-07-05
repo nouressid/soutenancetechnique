@@ -1,0 +1,35 @@
+﻿<div class="login-container">
+        <h3>Prosiria</h3>
+        <div id="edit-form">
+            <EditForm Model="@loginModel" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator />
+
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <InputText class="form-control" id="username" @bind-Value="loginModel.Username" />
+                    <ValidationMessage For="@(() => loginModel.Username)" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <InputText type="password" class="form-control" id="password" @bind-Value="loginModel.Password" />
+                    <ValidationMessage For="@(() => loginModel.Password)" />
+                </div>
+                <div id="label-container">
+                    <label id="switch" class="switch">
+                        <input type="checkbox" @onchange="ToggleCheckBox">
+                        <span class="slider round"></span>
+                    </label>
+                    <label id="remember-me" for="switch">Remember Me</label>
+                </div>
+                <button type="submit" id="submit">LOGIN</button>
+            </EditForm>
+            <div id="reset">
+                <span>
+                    Login issues? <a href="#">Reset your password</a>
+                </span>
+            </div>
+
+        </div>
+
+    </div>
